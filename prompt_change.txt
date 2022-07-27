@@ -1,0 +1,7 @@
+This is a text-based simulation. Given the following WORLD STATE and EVENT, describe the STATE CHANGE in detail. Detail what has changed in the WORLD STATE.
+
+WORLD STATE: <<STATE>>
+
+EVENT: <<EVENT>>
+
+STATE CHANGE:

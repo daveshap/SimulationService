@@ -1,0 +1,9 @@
+Write a detailed summary of the following:
+
+WORLD STATE: <<STATE>>
+
+EVENT: <<EVENT>>
+
+NEW WORLD STATE: <<NEW>>
+
+DETAILED SUMMARY:

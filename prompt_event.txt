@@ -1,0 +1,5 @@
+This is a text-based simulation. Given the following WORLD STATE imagine a likely or random EVENT. Describe the EVENT in one or two sentences.
+
+WORLD STATE: <<STATE>>
+
+EVENT:
