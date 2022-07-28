@@ -49,18 +49,18 @@ def gpt3_completion(prompt, engine='text-davinci-002', temp=0.7, top_p=1.0, toke
 if __name__ == '__main__':
     backstory = ''
     while True:
-        # load last ws
+        # load last scene
         file = os.listdir(scene_dir)[-1]
         last_scene = open_file(scene_dir + file)
         # generate event
         prompt = open_file('prompt_event.txt').replace('<<SCENE>>', last_scene).replace('<<STORY>>', backstory).replace('<<RARITY>>', 'likely')
         event = gpt3_completion(prompt)
         print('\n\nEVENT:', event)
-        # new world state
+        # new scene
         prompt = open_file('prompt_scene.txt').replace('<<SCENE>>', last_scene).replace('<<EVENT>>', event).replace('<<STORY>>', backstory)
         new_scene = gpt3_completion(prompt)
         print('\n\nSCENE:', new_scene)
-        # save ws
+        # save scene
         filename = 'scene_%s.txt' % time()
         save_file(scene_dir + filename, new_scene)
         # summarize backstory up to this point
