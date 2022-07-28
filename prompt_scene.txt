@@ -1,0 +1,9 @@
+Given the following SCENE and EVENT write a NEW SCENE.
+
+BACKSTORY: <<STORY>>
+
+SCENE: <<SCENE>>
+
+EVENT: <<EVENT>>
+
+NEW SCENE:

@@ -1,7 +1,0 @@
-This is a text-based simulation. Given the following WORLD STATE and EVENT, describe the impact in detail. Write a thorough explanation of what has changed in the world:
-
-WORLD STATE: <<STATE>>
-
-EVENT: <<EVENT>>
-
-CHANGE:

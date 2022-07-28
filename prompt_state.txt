@@ -1,9 +1,0 @@
-This is a text-based simulation. Given the WORLD STATE, EVENT, and CHANGE, describe the NEW WORLD STATE in great detail. Retain relevant details from the original WORLD STATE such that the NEW WORLD STATE still makes sense and contains necessary context.
-
-WORLD STATE: <<STATE>>
-
-EVENT: <<EVENT>>
-
-CHANGE: <<NEW>>
-
-NEW WORLD STATE:

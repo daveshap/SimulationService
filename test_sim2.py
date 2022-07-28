@@ -15,7 +15,7 @@ def save_file(filepath, content):
 
 
 openai.api_key = open_file('openaiapikey.txt')
-ws_dir = 'worldstates/'
+scene_dir = 'scenes/'
 
 
 def gpt3_completion(prompt, engine='text-davinci-002', temp=0.7, top_p=1.0, tokens=1000, freq_pen=0.0, pres_pen=0.0, stop=['asdfasdf', 'asdasdf']):
@@ -43,27 +43,29 @@ def gpt3_completion(prompt, engine='text-davinci-002', temp=0.7, top_p=1.0, toke
             if retry >= max_retry:
                 return "GPT3 error: %s" % oops
             print('Error communicating with OpenAI:', oops)
-            sleep(1)
+            #sleep(1)
 
 
 if __name__ == '__main__':
+    backstory = ''
     while True:
         # load last ws
-        file = os.listdir(ws_dir)[-1]
-        last_ws = open_file(ws_dir + file)
+        file = os.listdir(scene_dir)[-1]
+        last_scene = open_file(scene_dir + file)
         # generate event
-        prompt = open_file('prompt_event.txt').replace('<<STATE>>', last_ws)
+        prompt = open_file('prompt_event.txt').replace('<<SCENE>>', last_scene).replace('<<STORY>>', backstory).replace('<<RARITY>>', 'likely')
         event = gpt3_completion(prompt)
         print('\n\nEVENT:', event)
-        # simulate impact
-        prompt = open_file('prompt_change.txt').replace('<<STATE>>', last_ws).replace('<<EVENT>>', event)
-        state_change = gpt3_completion(prompt)
-        print('\n\nCHANGE:', state_change)
         # new world state
-        prompt = open_file('prompt_state.txt').replace('<<STATE>>', last_ws).replace('<<EVENT>>', event).replace('<<NEW>>', state_change)
-        new_ws = gpt3_completion(prompt)
-        print('\n\nSTATE:', new_ws)
+        prompt = open_file('prompt_scene.txt').replace('<<SCENE>>', last_scene).replace('<<EVENT>>', event).replace('<<STORY>>', backstory)
+        new_scene = gpt3_completion(prompt)
+        print('\n\nSCENE:', new_scene)
         # save ws
-        filename = 'ws_%s.txt' % time()
-        save_file(ws_dir + filename, new_ws)
-        sleep(5)
+        filename = 'scene_%s.txt' % time()
+        save_file(scene_dir + filename, new_scene)
+        # summarize backstory up to this point
+        backstory = (backstory + ' ' + event + ' ' + new_scene).strip()
+        prompt = open_file('prompt_concise_summary.txt').replace('<<STORY>>', backstory)
+        backstory = gpt3_completion(prompt)
+        print('\n\nBACKSTORY:', backstory)
+        #sleep(5)

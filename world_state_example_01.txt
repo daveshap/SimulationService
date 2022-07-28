@@ -1,7 +1,0 @@
-This is a text-based simulation. Given the following WORLD STATE and EVENT, advance the WORLD STATE by one step. Describe the NEW WORLD STATE completely and objectively.
-
-WORLD STATE: Two men are sitting at a stone chess table in Central Park. They are playing chess. The sun is shining and birds are singing. It is a summer day. Children are running and playing in the distance. Horns honking and the bustle of New York can be heard in the background.
-
-EVENT: nothing of note happens, the scene plays out
-
-NEW WORLD STATE: The two men continue to play chess. The sun continues to shine and the birds continue to sing. The children continue to play in the distance. The horns continue to honk and the bustle of New York continues in the background.
