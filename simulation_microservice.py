@@ -20,8 +20,7 @@ def save_file(filepath, content):
 
 openai.api_key = open_file('openaiapikey.txt')
 scene_dir = 'scenes/'
-service_name = 'sensor_simulation'
-content_prefix = 'Sensory input scene: '
+content_prefix = 'Sensory input: '
 tempo = 30
 
 
