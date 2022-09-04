@@ -1,0 +1,7 @@
+Write a summary of the following story:
+
+
+<<STORY>>
+
+
+STORY SUMMARY:
